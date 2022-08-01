@@ -14,3 +14,6 @@ class ABConsole(cmd.Cmd):
     def default(self, line):
         """"""
 
+
+if __name__ == '__main__':
+    ABConsole().cmdloop()
