@@ -12,8 +12,9 @@ class BaseModel:
 
     def __str__(self):
         """To print the string form of the object"""
-        string = "[{}] () {}".format(type(self).__name__, self.id, self.__dict__)
-        print(string)
+        string = "[{}] ({}) {}".format(
+                type(self).__name__, self.id, self.__dict__)
+        return string
 
     def save(self):
         """updates the public instance attribute update_at with current time"""
