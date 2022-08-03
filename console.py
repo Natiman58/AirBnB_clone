@@ -9,7 +9,7 @@ import re
 
 
 
-class ABConsole(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """A class for the command interpreter."""
     prompt = "(hbnb) "
 
@@ -51,7 +51,21 @@ class ABConsole(cmd.Cmd):
         command = method + " " + classname + " " + uid + " " + attr_and_value
         self.onecmd(command)
         return command
+    
+    def do_EOF(self, line):
+        """Handles EOF char"""
+        print()
+        return True
+    
+    def do_quit(self, line):
+        """Quit command to exit the program"""
+        return True
+
+    def emptyline(self):
+        """Doesnt do anything"""
+        pass
+
 
 
 if __name__ == '__main__':
-    ABConsole().cmdloop()
+    HBNBCommand().cmdloop()
