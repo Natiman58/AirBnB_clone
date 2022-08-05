@@ -110,38 +110,36 @@ All tests should also pass in non-interactive mode: $ echo "python3 -m unittest 
       
       to organize your work
       
- 
 1. Be pycodestyle compliant!
     
     Write beautiful code that passes the pycodestyle checks.
     
-
 2. Unittests
 
 All your files, classes, functions must be tested with unit tests
 
-guillaume@ubuntu:~/AirBnB$ python3 -m unittest discover tests
-...................................................................................
-...................................................................................
-.......................
-----------------------------------------------------------------------
-Ran 189 tests in 13.135s
+    guillaume@ubuntu:~/AirBnB$ python3 -m unittest discover tests
+    ...................................................................................
+    ...................................................................................
+    .......................
+    ----------------------------------------------------------------------
+    Ran 189 tests in 13.135s
 
-OK
-guillaume@ubuntu:~/AirBnB$
+    OK
+    guillaume@ubuntu:~/AirBnB$
 
 
 Unit tests must also pass in non-interactive mode:
 
-guillaume@ubuntu:~/AirBnB$ echo "python3 -m unittest discover tests" | bash
-...................................................................................
-...................................................................................
-.......................
-----------------------------------------------------------------------
-Ran 189 tests in 13.135s
+    guillaume@ubuntu:~/AirBnB$ echo "python3 -m unittest discover tests" | bash
+    ...................................................................................
+    ...................................................................................
+    .......................
+    ----------------------------------------------------------------------
+    Ran 189 tests in 13.135s
 
-OK
-guillaume@ubuntu:~/AirBnB$
+    OK
+    guillaume@ubuntu:~/AirBnB$
 
 
 
@@ -220,35 +218,15 @@ Write a class BaseModel that defines all common attributes/methods for other cla
     
     print("JSON of my_model:")
 
-for key in my_model_json.keys():
+    for key in my_model_json.keys():
     
-    print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
+        print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
 
-guillaume@ubuntu:~/AirBnB$ ./test_base_model.py
+    guillaume@ubuntu:~/AirBnB$ ./test_base_model.py
 
-[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First 
+    [BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}{'my_number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': '2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': '2017-09-28T21:05:54.119427'}
 
-Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 
-
-'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 
-
-21, 5, 54, 119427)}
-
-[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First 
-
-Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 
-
-'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 
-
-21, 5, 54, 119427)}
-
-{'my_number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': 
-
-'2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 
-
-'created_at': '2017-09-28T21:05:54.119427'}
-
-JSON of my_model:
+    JSON of my_model:
     
     my_number: (<class 'int'>) - 89
     
@@ -262,12 +240,10 @@ JSON of my_model:
     
     created_at: (<class 'str'>) - 2017-09-28T21:05:54.119427
 
-guillaume@ubuntu:~/AirBnB$ 
+    guillaume@ubuntu:~/AirBnB$ 
      
 
 3. BaseModel
-
-mandatory
 
 Write a class BaseModel that defines all common attributes/methods for other classes:
 
@@ -310,86 +286,65 @@ Write a class BaseModel that defines all common attributes/methods for other cla
             process: create a dictionary representation with “simple object type” of our BaseModel
             
  
-guillaume@ubuntu:~/AirBnB$ cat test_base_model.py
+    guillaume@ubuntu:~/AirBnB$ cat test_base_model.py
 
-#!/usr/bin/python3
+    #!/usr/bin/python3
 
-from models.base_model import BaseModel
+    from models.base_model import BaseModel
 
-my_model = BaseModel()
+    my_model = BaseModel()
 
-my_model.name = "My First Model"
+    my_model.name = "My First Model"
 
-my_model.my_number = 89
+    my_model.my_number = 89
 
-print(my_model)
+    print(my_model)
 
-my_model.save()
+    my_model.save()
 
-print(my_model)
+    print(my_model)
 
-my_model_json = my_model.to_dict()
+    my_model_json = my_model.to_dict()
 
-print(my_model_json)
+    print(my_model_json)
 
-print("JSON of my_model:")
+    print("JSON of my_model:")
 
-for key in my_model_json.keys():
+    for key in my_model_json.keys():
     
     print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
 
-guillaume@ubuntu:~/AirBnB$ ./test_base_model.py
+    guillaume@ubuntu:~/AirBnB$ ./test_base_model.py
 
-[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First 
+    [BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)} {'my_number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': '2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': '2017-09-28T21:05:54.119427'}
 
-Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 
-
-'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 
-
-21, 5, 54, 119427)}
-
-[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First 
-
-Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 
-
-'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 
-
-21, 5, 54, 119427)}
-
-{'my_number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': 
-
-'2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 
-
-'created_at': '2017-09-28T21:05:54.119427'}
-
-JSON of my_model:
+    JSON of my_model:
     
-    my_number: (<class 'int'>) - 89
+        my_number: (<class 'int'>) - 89
     
-    name: (<class 'str'>) - My First Model
+        name: (<class 'str'>) - My First Model
     
-    __class__: (<class 'str'>) - BaseModel
+        __class__: (<class 'str'>) - BaseModel
     
-    updated_at: (<class 'str'>) - 2017-09-28T21:05:54.119572
+        updated_at: (<class 'str'>) - 2017-09-28T21:05:54.119572
     
-    id: (<class 'str'>) - b6a6e15c-c67d-4312-9a75-9d084935e579
+        id: (<class 'str'>) - b6a6e15c-c67d-4312-9a75-9d084935e579
     
-    created_at: (<class 'str'>) - 2017-09-28T21:05:54.119427
+        created_at: (<class 'str'>) - 2017-09-28T21:05:54.119427
 
-guillaume@ubuntu:~/AirBnB$ 
+    guillaume@ubuntu:~/AirBnB$ 
 
 
 
 4. Create BaseModel from dictionary
-mandatory
 
 Previously we created a method to generate a dictionary representation of an instance (method to_dict()).
 
 Now it’s time to re-create an instance with this dictionary representation.
 
-<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> <class 'BaseModel'>
+    <class 'BaseModel'> -> to_dict() -> <class 'dict'> -> <class 'BaseModel'>
 
-Update models/base_model.py:
+    Update models/base_model.py:
 
     __init__(self, *args, **kwargs):
         
@@ -422,98 +377,82 @@ Update models/base_model.py:
 
 guillaume@ubuntu:~/AirBnB$ cat test_base_model_dict.py
 
-#!/usr/bin/python3
+    #!/usr/bin/python3
 
-from models.base_model import BaseModel
+    from models.base_model import BaseModel
 
-my_model = BaseModel()
+    my_model = BaseModel()
 
-my_model.name = "My_First_Model"
+    my_model.name = "My_First_Model"
 
-my_model.my_number = 89
+    my_model.my_number = 89
 
-print(my_model.id)
+    print(my_model.id)
 
-print(my_model)
+    print(my_model)
 
-print(type(my_model.created_at))
+    print(type(my_model.created_at))
 
-print("--")
+    print("--")
 
-my_model_json = my_model.to_dict()
+    my_model_json = my_model.to_dict()
 
-print(my_model_json)
+    print(my_model_json)
 
-print("JSON of my_model:")
+    print("JSON of my_model:")
 
-for key in my_model_json.keys():
-    print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
+    for key in my_model_json.keys():
+        print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
 
-print("--")
+    print("--")
 
-my_new_model = BaseModel(**my_model_json)
+    my_new_model = BaseModel(**my_model_json)
 
-print(my_new_model.id)
+    print(my_new_model.id)
 
-print(my_new_model)
+    print(my_new_model)
 
-print(type(my_new_model.created_at))
+    print(type(my_new_model.created_at))
 
-print("--")
-print(my_model is my_new_model)
+    print("--")
+    print(my_model is my_new_model)
 
-guillaume@ubuntu:~/AirBnB$ ./test_base_model_dict.py
+    guillaume@ubuntu:~/AirBnB$ ./test_base_model_dict.py
 
-56d43177-cc5f-4d6c-a0c1-e167f8c27337
+    56d43177-cc5f-4d6c-a0c1-e167f8c27337
 
-[BaseModel] (56d43177-cc5f-4d6c-a0c1-e167f8c27337) {'id': '56d43177-cc5f-4d6c-a0c1-
+    [BaseModel] (56d43177-cc5f-4d6c-a0c1-e167f8c27337) {'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337', 'created_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52298),'my_number': 89, 'updated_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52302), 'name': 'My_First_Model'}
 
-e167f8c27337', 'created_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52298), 
+    <class 'datetime.datetime'>
+    --
 
-'my_number': 89, 'updated_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52302), 
+    {'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337', 'created_at': '2017-09-28T21:03:54.052298', '__class__': 'BaseModel', 'my_number': 89, 'updated_at': '2017-09-28T21:03:54.052302', 'name': 'My_First_Model'}
 
-'name': 'My_First_Model'}
-
-<class 'datetime.datetime'>
---
-
-{'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337', 'created_at': 
-
-'2017-09-28T21:03:54.052298', '__class__': 'BaseModel', 'my_number': 89, 'updated_at': 
-
-'2017-09-28T21:03:54.052302', 'name': 'My_First_Model'}
-
-JSON of my_model:
+    JSON of my_model:
     
-    id: (<class 'str'>) - 56d43177-cc5f-4d6c-a0c1-e167f8c27337
+        id: (<class 'str'>) - 56d43177-cc5f-4d6c-a0c1-e167f8c27337
     
-    created_at: (<class 'str'>) - 2017-09-28T21:03:54.052298
+        created_at: (<class 'str'>) - 2017-09-28T21:03:54.052298
     
-    __class__: (<class 'str'>) - BaseModel
+        __class__: (<class 'str'>) - BaseModel
     
-    my_number: (<class 'int'>) - 89
+        my_number: (<class 'int'>) - 89
     
-    updated_at: (<class 'str'>) - 2017-09-28T21:03:54.052302
+        updated_at: (<class 'str'>) - 2017-09-28T21:03:54.052302
     
-    name: (<class 'str'>) - My_First_Model
---
+        name: (<class 'str'>) - My_First_Model
+    --
 
-56d43177-cc5f-4d6c-a0c1-e167f8c27337
+    56d43177-cc5f-4d6c-a0c1-e167f8c27337
 
-[BaseModel] (56d43177-cc5f-4d6c-a0c1-e167f8c27337) {'id': '56d43177-cc5f-4d6c-a0c1-
+    [BaseModel] (56d43177-cc5f-4d6c-a0c1-e167f8c27337) {'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337', 'created_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52298),'my_number': 89, 'updated_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52302), 'name': 'My_First_Model'}
 
-e167f8c27337', 'created_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52298), 
+    <class 'datetime.datetime'>
 
-'my_number': 89, 'updated_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52302), 
+    --
 
-'name': 'My_First_Model'}
-
-<class 'datetime.datetime'>
-
---
-
-False
-guillaume@ubuntu:~/AirBnB$
+    False
+    guillaume@ubuntu:~/AirBnB$
 
 
 
@@ -521,13 +460,9 @@ guillaume@ubuntu:~/AirBnB$
 
 Now we can recreate a BaseModel from another one by using a dictionary representation:
 
-<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> <class 'BaseModel'>
+    <class 'BaseModel'> -> to_dict() -> <class 'dict'> -> <class 'BaseModel'>
 
-It’s great but it’s still not persistent: every time you launch the program, you don’t 
-
-restore all objects created before… The first way you will see here is to save these 
-
-objects to a file.
+It’s great but it’s still not persistent: every time you launch the program, you don’t restore all objects created before… The first way you will see here is to save these objects to a file.
 
 Writing the dictionary representation to a file won’t be relevant:
 
@@ -537,17 +472,13 @@ Writing the dictionary representation to a file won’t be relevant:
     
     Using this file with another program in Python or other language will be hard.
 
-So, you will convert the dictionary representation to a JSON string. JSON is a 
-
-standard representation of a data structure. With this format, humans can read and all 
-
-programming languages have a JSON reader and writer.
+So, you will convert the dictionary representation to a JSON string. JSON is a standard representation of a data structure. With this format, humans can read and all programming languages have a JSON reader and writer.
 
 Now the flow of serialization-deserialization will be:
 
-<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> 
+    <class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> 
 
-FILE -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>
+    FILE -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>
 
 Magic right?
 
@@ -710,19 +641,11 @@ guillaume@ubuntu:~/AirBnB$ ./console.py
 
 (hbnb) all BaseModel
 
-["[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': 
-
-datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-
-
-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}"]
+["[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}"]
 
 (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 
-[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': 
-
-datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-
-
-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
+[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
 
 (hbnb) destroy
 
@@ -732,11 +655,7 @@ datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-
 
 (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 
-[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': 
-
-'49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 
-
-3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}
+[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}
 
 (hbnb) create BaseModel
 
@@ -744,17 +663,7 @@ datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-
 
 (hbnb) all BaseModel
 
-["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-
-
-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717), 
-
-'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}", "[BaseModel] 
-
-(49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-
-
-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 
-
-903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]
+["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717),'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}", "[BaseModel](49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]
 
 (hbnb) destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907
 
