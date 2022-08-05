@@ -580,6 +580,8 @@ You should end your file with:
     (hbnb) 
     (hbnb) quit 
     guillaume@ubuntu:~/AirBnB$
+
+7. Console 0.1 
  
  Update your command interpreter (console.py) to have these commands:
 
@@ -621,57 +623,57 @@ Let’s add some rules:
     A string argument with a space must be between double quote
     The error management starts from the first argument to the last one
 
-guillaume@ubuntu:~/AirBnB$ ./console.py
+    guillaume@ubuntu:~/AirBnB$ ./console.py
 
-(hbnb) all MyModel
+    (hbnb) all MyModel
 
-** class doesn't exist **
+    ** class doesn't exist **
 
-(hbnb) show BaseModel
+    (hbnb) show BaseModel
 
-** instance id missing **
+    ** instance id missing **
 
-(hbnb) show BaseModel My_First_Model
+    (hbnb) show BaseModel My_First_Model
 
-** no instance found **
+    ** no instance found **
 
-(hbnb) create BaseModel
+    (hbnb) create BaseModel
 
-49faff9a-6318-451f-87b6-910505c55907
+    49faff9a-6318-451f-87b6-910505c55907
 
-(hbnb) all BaseModel
+    (hbnb) all BaseModel
 
-["[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}"]
+    ["[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}"]
 
-(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
+    (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 
-[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
+    [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
 
-(hbnb) destroy
+    (hbnb) destroy
 
-** class name missing **
+    ** class name missing **
 
-(hbnb) update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"
+    (hbnb) update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"
 
-(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
+    (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 
-[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}
+    [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}
 
-(hbnb) create BaseModel
+    (hbnb) create BaseModel
 
-2dd6ef5c-467c-4f82-9521-a772ea7d84e9
+    2dd6ef5c-467c-4f82-9521-a772ea7d84e9
 
-(hbnb) all BaseModel
+    (hbnb) all BaseModel
 
-["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717),'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}", "[BaseModel](49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]
+    ["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717),'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}", "[BaseModel](49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]
 
-(hbnb) destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907
+    (hbnb) destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907
 
-(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
+    (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 
-** no instance found **
+    ** no instance found **
 
-(hbnb) 
+    (hbnb) 
 
 
 8. First User
