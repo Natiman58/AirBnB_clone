@@ -1,5 +1,5 @@
 """
-    #A module to create unique FileStorage instance
+    A module to create unique FileStorage instance
 """
 
 from models.engine.file_storage import FileStorage
