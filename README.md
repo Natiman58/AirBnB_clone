@@ -760,9 +760,8 @@ Write all those classes that inherit from BaseModel:
     
 10. Console 1.0
 
-Update FileStorage to manage correctly serialization and deserialization of all our new classes: Place, State, City, Amenity and Review
-
-Update your command interpreter (console.py) to allow those actions: show, create, destroy, update and all with all classes created previously.
+    Update FileStorage to manage correctly serialization and deserialization of all our new classes: Place, State, City, Amenity and Review
+    Update your command interpreter (console.py) to allow those actions: show, create, destroy, update and all with all classes created previously.
 
     
     
