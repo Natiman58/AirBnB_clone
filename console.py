@@ -10,13 +10,15 @@ from models.base_model import BaseModel
 from models import storage
 import json
 
+
 class HBNBCommand(cmd.Cmd):
     """A class for the command interpreter."""
     prompt = "(hbnb) "
 
     def default(self, line):
         """
-            Method called on an input line when the command prefix is not recognized.\
+            Method called on an input line when\
+            the command prefix is not recognized.\
             If this method is not overridden\
             it prints an error message and returns."""
         self.__precmd(line)
@@ -44,15 +46,13 @@ class HBNBCommand(cmd.Cmd):
             if match_dict:
                 self.update_dict(classname, uid, match_dict.group(1))
                 return ""
-            match_attr_and_value = re.search('^(?:"([^"]*)")?(?:, (.*))?$', 
-                    attr_or_dict)
+            match_attr_and_value = re.search('^(?:"([^"]*)")?(?:, (.*))?$', attr_or_dict)
             if match_attr_and_value:
                 attr_and_value = (match_attr_and_value.group(1) or ""
                                   + " " + (match_attr_and_value.group(2) or ""))
         command = method + " " + classname + " " + uid + " " + attr_and_value
         self.onecmd(command)
         return command
-    
 
     def update_dict(self, classname, uid, s_dict):
         """
@@ -77,12 +77,12 @@ class HBNBCommand(cmd.Cmd):
                         value = attributes[attribute](value)
                     setattr(storage.all()[key], attribute, value)
                 storage.all()[key].save()
-    
+
     def do_EOF(self, line):
         """Handles EOF char"""
         print()
         return True
-    
+
     def do_quit(self, line):
         """Quit command to exit the program"""
         return True
@@ -95,7 +95,6 @@ class HBNBCommand(cmd.Cmd):
         """Creates a new instance of BaseModel"""
         if line == "" or line is None:
             print("** class name missing **")
-        
         elif line not in storage.classes():
             print("** class doesn't exist **")
         else:
@@ -119,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
                 else:
                     print(storage.all()[name_id])
-    
+
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id"""
         if line is None or line == "":
@@ -131,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
             elif len(words) < 2:
                 print("** instance id missing **")
             else:
-                name_id =" {}.{}".format(words[0], words[1])
+                name_id = "{}.{}".format(words[0], words[1])
                 if name_id not in storage.all():
                     print("** no instance found **")
                 else:
@@ -199,7 +198,6 @@ class HBNBCommand(cmd.Cmd):
                         pass
                 setattr(storage.all()[key], atr_name, atr_value)
                 storage.all()[key].save()
-
 
 
 if __name__ == '__main__':
