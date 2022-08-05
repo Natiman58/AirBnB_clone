@@ -33,7 +33,7 @@ class BaseModel:
     def __str__(self):
         """To print the string form of the object"""
         string = "[{}] ({}) {}".format(
-                type(self).__name__, self.id, self.__dict__)
+                self.__class__.__name__, self.id, self.__dict__)
         return string
 
     def save(self):
@@ -44,7 +44,7 @@ class BaseModel:
     def to_dict(self):
         """Returns a dictionary with key/value"""
         my_dict = self.__dict__.copy()
-        my_dict["__class__"] = type(self).__name__
+        my_dict["__class__"] = self.__class__.__name__
         my_dict["created_at"] = my_dict["created_at"].isoformat()
         my_dict["updated_at"] = my_dict["updated_at"].isoformat()
         return my_dict

@@ -17,15 +17,15 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
-        """saves in __objects; the obj with key as <obj class name>.id"""
+        """saves in __objects; the obj with key;(<obj class name>.id)"""
         obj_name = obj.__class__.__name__
         FileStorage.__objects["{}.{}".format(obj_name, obj.id)] = obj
 
     def save(self):
         """serializes(stringize) __objects to the JSON file (path: __file_path) """
         with open(FileStorage.__file_path, "w+", encoding="utf-8") as f:
-            dict_string = {key: value.to_dict() for key, value in FileStorage.__objects.items()}
-            json.dump(dict_string, f)
+            dict_str = {key: value.to_dict() for key, value in FileStorage.__objects.items()}
+            json.dump(dict_str, f)
     def classes(self):
         """Returns a dictionary of valid classes and their references."""
         from models.base_model import BaseModel
@@ -51,6 +51,9 @@ class FileStorage:
             return
         with open(FileStorage.__file_path, "r+", encoding="utf-8") as f:
                 dict_obj = json.load(f)
+                dict_obj = {key: self.classes()[val["__class__"]](**val)
+                    for key, val in dict_obj.items()}
+                FileStorage.__objects = dict_obj
 
     def attributes(self):
         """Returns the valid attributes and their types for classname."""
