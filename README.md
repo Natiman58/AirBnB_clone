@@ -88,28 +88,14 @@ All tests should also pass in non-interactive mode: $ echo "python3 -m unittest 
 
 
 0. README, AUTHORS
-      
-      Write a README.md:
-          
-          description of the project
-          
-          description of the command interpreter:
-              
-              how to start it
-              
-              how to use it
-              
-      
-      You should have an AUTHORS file at the root of your repository, listing all   
-      
-      individuals having contributed content to the repository. For format, reference 
-      
-      Docker’s AUTHORS page
-      
-      You should use branches and pull requests on GitHub - it will help you as team 
-      
-      to organize your work
-      
+           
+           Write a README.md:
+           description of the project
+           description of the command interpreter:
+           how to start it
+           how to use it
+        You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. For format, reference 
+
 1. Be pycodestyle compliant!
     
     Write beautiful code that passes the pycodestyle checks.
@@ -194,53 +180,47 @@ Write a class BaseModel that defines all common attributes/methods for other cla
             
             our BaseModel
      
-    guillaume@ubuntu:~/AirBnB$ cat test_base_model.py
+        guillaume@ubuntu:~/AirBnB$ cat test_base_model.py
     
-    #!/usr/bin/python3
+        #!/usr/bin/python3
     
-    from models.base_model import BaseModel
+        from models.base_model import BaseModel
 
-    my_model = BaseModel()
+        my_model = BaseModel()
     
-    my_model.name = "My First Model"
+        my_model.name = "My First Model"
     
-    my_model.my_number = 89
+        my_model.my_number = 89
     
-    print(my_model)
+        print(my_model)
     
-    my_model.save()
+        my_model.save()
     
-    print(my_model)
+        print(my_model)
     
-    my_model_json = my_model.to_dict()
+        my_model_json = my_model.to_dict()
     
-    print(my_model_json)
+        print(my_model_json)
     
-    print("JSON of my_model:")
+        print("JSON of my_model:")
 
-    for key in my_model_json.keys():
+        for key in my_model_json.keys():
     
-        print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
+            print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
 
-    guillaume@ubuntu:~/AirBnB$ ./test_base_model.py
+        guillaume@ubuntu:~/AirBnB$ ./test_base_model.py
 
-    [BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}{'my_number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': '2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': '2017-09-28T21:05:54.119427'}
+        [BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}{'my_number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': '2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': '2017-09-28T21:05:54.119427'}
 
-    JSON of my_model:
-    
-    my_number: (<class 'int'>) - 89
-    
-    name: (<class 'str'>) - My First Model
-    
-    __class__: (<class 'str'>) - BaseModel
-    
-    updated_at: (<class 'str'>) - 2017-09-28T21:05:54.119572
-    
-    id: (<class 'str'>) - b6a6e15c-c67d-4312-9a75-9d084935e579
-    
-    created_at: (<class 'str'>) - 2017-09-28T21:05:54.119427
-
-    guillaume@ubuntu:~/AirBnB$ 
+        JSON of my_model:
+            my_number: (<class 'int'>) - 89
+            name: (<class 'str'>) - My First Model
+            __class__: (<class 'str'>) - BaseModel
+            updated_at: (<class 'str'>) - 2017-09-28T21:05:54.119572
+            id: (<class 'str'>) - b6a6e15c-c67d-4312-9a75-9d084935e579
+            created_at: (<class 'str'>) - 2017-09-28T21:05:54.119427
+       
+       guillaume@ubuntu:~/AirBnB$ 
      
 
 3. BaseModel
@@ -286,55 +266,36 @@ Write a class BaseModel that defines all common attributes/methods for other cla
             process: create a dictionary representation with “simple object type” of our BaseModel
             
  
-    guillaume@ubuntu:~/AirBnB$ cat test_base_model.py
+        guillaume@ubuntu:~/AirBnB$ cat test_base_model.py
+        
+        #!/usr/bin/python3
+        from models.base_model import BaseModel
+        my_model = BaseModel()
+        my_model.name = "My First Model"
+        my_model.my_number = 89
+        print(my_model)
+        my_model.save()
+        print(my_model)
+        my_model_json = my_model.to_dict()
+        print(my_model_json)
+        print("JSON of my_model:")
+        for key in my_model_json.keys():
+            print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
 
-    #!/usr/bin/python3
+        guillaume@ubuntu:~/AirBnB$ ./test_base_model.py
 
-    from models.base_model import BaseModel
+        [BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)} {'my_number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': '2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': '2017-09-28T21:05:54.119427'}
 
-    my_model = BaseModel()
-
-    my_model.name = "My First Model"
-
-    my_model.my_number = 89
-
-    print(my_model)
-
-    my_model.save()
-
-    print(my_model)
-
-    my_model_json = my_model.to_dict()
-
-    print(my_model_json)
-
-    print("JSON of my_model:")
-
-    for key in my_model_json.keys():
+        JSON of my_model:
     
-    print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
-
-    guillaume@ubuntu:~/AirBnB$ ./test_base_model.py
-
-    [BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'my_number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)} {'my_number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': '2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': '2017-09-28T21:05:54.119427'}
-
-    JSON of my_model:
-    
-        my_number: (<class 'int'>) - 89
-    
-        name: (<class 'str'>) - My First Model
-    
-        __class__: (<class 'str'>) - BaseModel
-    
-        updated_at: (<class 'str'>) - 2017-09-28T21:05:54.119572
-    
-        id: (<class 'str'>) - b6a6e15c-c67d-4312-9a75-9d084935e579
-    
-        created_at: (<class 'str'>) - 2017-09-28T21:05:54.119427
+            my_number: (<class 'int'>) - 89
+            name: (<class 'str'>) - My First Model
+            __class__: (<class 'str'>) - BaseModel
+            updated_at: (<class 'str'>) - 2017-09-28T21:05:54.119572
+            id: (<class 'str'>) - b6a6e15c-c67d-4312-9a75-9d084935e579
+            created_at: (<class 'str'>) - 2017-09-28T21:05:54.119427
 
     guillaume@ubuntu:~/AirBnB$ 
-
-
 
 4. Create BaseModel from dictionary
 
@@ -375,71 +336,53 @@ Now it’s time to re-create an instance with this dictionary representation.
             create id and created_at as you did previously (new instance)
 
 
-guillaume@ubuntu:~/AirBnB$ cat test_base_model_dict.py
+    guillaume@ubuntu:~/AirBnB$ cat test_base_model_dict.py
 
-    #!/usr/bin/python3
+        #!/usr/bin/python3
+        from models.base_model import BaseModel
+        my_model = BaseModel()
+        my_model.name = "My_First_Model"
+        my_model.my_number = 89
+        print(my_model.id)
+        print(my_model)
+        print(type(my_model.created_at))
 
-    from models.base_model import BaseModel
+        print("--")
 
-    my_model = BaseModel()
+        my_model_json = my_model.to_dict()
 
-    my_model.name = "My_First_Model"
+        print(my_model_json)
 
-    my_model.my_number = 89
+        print("JSON of my_model:")
 
-    print(my_model.id)
+        for key in my_model_json.keys():
+            print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
 
-    print(my_model)
+        print("--")
 
-    print(type(my_model.created_at))
-
-    print("--")
-
-    my_model_json = my_model.to_dict()
-
-    print(my_model_json)
-
-    print("JSON of my_model:")
-
-    for key in my_model_json.keys():
-        print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
-
-    print("--")
-
-    my_new_model = BaseModel(**my_model_json)
-
-    print(my_new_model.id)
-
-    print(my_new_model)
-
-    print(type(my_new_model.created_at))
-
-    print("--")
-    print(my_model is my_new_model)
+        my_new_model = BaseModel(**my_model_json)
+        print(my_new_model.id)
+        print(my_new_model)
+        print(type(my_new_model.created_at))
+        print("--")
+        print(my_model is my_new_model)
 
     guillaume@ubuntu:~/AirBnB$ ./test_base_model_dict.py
 
     56d43177-cc5f-4d6c-a0c1-e167f8c27337
 
     [BaseModel] (56d43177-cc5f-4d6c-a0c1-e167f8c27337) {'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337', 'created_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52298),'my_number': 89, 'updated_at': datetime.datetime(2017, 9, 28, 21, 3, 54, 52302), 'name': 'My_First_Model'}
-
+    
     <class 'datetime.datetime'>
     --
-
     {'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337', 'created_at': '2017-09-28T21:03:54.052298', '__class__': 'BaseModel', 'my_number': 89, 'updated_at': '2017-09-28T21:03:54.052302', 'name': 'My_First_Model'}
-
+    
     JSON of my_model:
-    
         id: (<class 'str'>) - 56d43177-cc5f-4d6c-a0c1-e167f8c27337
-    
         created_at: (<class 'str'>) - 2017-09-28T21:03:54.052298
-    
         __class__: (<class 'str'>) - BaseModel
-    
         my_number: (<class 'int'>) - 89
-    
         updated_at: (<class 'str'>) - 2017-09-28T21:03:54.052302
-    
         name: (<class 'str'>) - My_First_Model
     --
 
@@ -453,8 +396,6 @@ guillaume@ubuntu:~/AirBnB$ cat test_base_model_dict.py
 
     False
     guillaume@ubuntu:~/AirBnB$
-
-
 
 5. Store first object
 
@@ -539,8 +480,6 @@ Update models/base_model.py: to link your BaseModel to FileStorage by using the 
     __init__(self, *args, **kwargs):
         
         if it’s a new instance (not from a dictionary representation), add a call to the method new(self) on storage
-
-
 
 6. Console 0.0.1
 mandatory
@@ -695,7 +634,6 @@ Update FileStorage to manage correctly serialization and deserialization of User
 
 Update your command interpreter (console.py) to allow show, create, destroy, update and all used with User
 
-    
 
 9. More classes!
 
@@ -756,16 +694,7 @@ Write all those classes that inherit from BaseModel:
             user_id: string - empty string: it will be the User.id
             
             text: string - empty string
-
-    
 10. Console 1.0
 
         Update FileStorage to manage correctly serialization and deserialization of all our new classes: Place, State, City, Amenity and Review
         Update your command interpreter (console.py) to allow those actions: show, create, destroy, update and all with all classes created previously.
-
-    
-    
-
-
-    
-   
