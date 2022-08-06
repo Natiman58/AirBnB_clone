@@ -6,6 +6,7 @@ import json
 import os
 import datetime
 
+
 class FileStorage:
     """A class that serializes instances to a JSON file\
             and deserializes JSON file to instances:"""
@@ -13,19 +14,22 @@ class FileStorage:
     __objects = {}
 
     def all(self):
-        """Returns the dictionary; __objects"""
+        """Returns all the dictionaries in __objects"""
         return FileStorage.__objects
 
     def new(self, obj):
-        """saves in __objects; the obj with key;(<obj class name>.id)"""
+        """adds a new obj with key (<obj class name>.id) to __objects"""
         obj_name = obj.__class__.__name__
         FileStorage.__objects["{}.{}".format(obj_name, obj.id)] = obj
 
     def save(self):
-        """serializes(stringize) __objects to the JSON file (path: __file_path) """
+        """serializes(stringize) __objects\
+                to the JSON file; __file_path"""
         with open(FileStorage.__file_path, "w+", encoding="utf-8") as f:
-            dict_str = {key: value.to_dict() for key, value in FileStorage.__objects.items()}
+            dict_str = {key: value.to_dict()
+                        for key, value in FileStorage.__objects.items()}
             json.dump(dict_str, f)
+
     def classes(self):
         """Returns a dictionary of valid classes and their references."""
         from models.base_model import BaseModel
@@ -50,10 +54,10 @@ class FileStorage:
         if not os.path.isfile(FileStorage.__file_path):
             return
         with open(FileStorage.__file_path, "r+", encoding="utf-8") as f:
-                dict_obj = json.load(f)
-                dict_obj = {key: self.classes()[val["__class__"]](**val)
-                    for key, val in dict_obj.items()}
-                FileStorage.__objects = dict_obj
+            dict_obj = json.load(f)
+            dict_obj = {key: self.classes()[val["__class__"]](**val)
+                        for key, val in dict_obj.items()}
+            FileStorage.__objects = dict_obj
 
     def attributes(self):
         """Returns the valid attributes and their types for classname."""
@@ -92,10 +96,3 @@ class FileStorage:
                          "text": str}
         }
         return attributes
-
-            
-
-
-
-
-
