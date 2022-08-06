@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         classname = result.group(1)
         method = result.group(2)
         args = result.group(3)
-        
+
         match_uid_args = re.search('^"([^"]*)"(?:, (.*))?$', args)
         if match_uid_args:
             uid = match_uid_args.group(1)
