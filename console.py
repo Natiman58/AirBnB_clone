@@ -26,16 +26,17 @@ class HBNBCommand(cmd.Cmd):
     def _precmd(self, line):
         """Executed just before the cmd line is interpreted\
          and after the input prompt is generated"""
-        match = re.search(r"^(\w*)\.(\w+)(?:\(([^)]*)\))$", line)
-        if not match:
+        result = re.search(r"^(\w*)\.(\w+)(?:\(([^)]*)\))$", line)
+        if not result:
             return line
-        classname = match.group(1)
-        method = match.group(2)
-        args = match.group(3)
-        match_uid_and_args = re.search('^"([^"]*)"(?:, (.*))?$', args)
-        if match_uid_and_args:
-            uid = match_uid_and_args.group(1)
-            attr_or_dict = match_uid_and_args.group(2)
+        classname = result.group(1)
+        method = result.group(2)
+        args = result.group(3)
+        
+        match_uid_args = re.search('^"([^"]*)"(?:, (.*))?$', args)
+        if match_uid_args:
+            uid = match_uid_args.group(1)
+            attr_or_dict = match_uid_args.group(2)
         else:
             uid = args
             attr_or_dict = False
@@ -46,10 +47,12 @@ class HBNBCommand(cmd.Cmd):
             if match_dict:
                 self.update_dict(classname, uid, match_dict.group(1))
                 return ""
-            match_attr_and_value = re.search('^(?:"([^"]*)")?(?:, (.*))?$', attr_or_dict)
+            match_attr_and_value = re.search(
+                    '^(?:"([^"]*)")?(?:, (.*))?$', attr_or_dict)
             if match_attr_and_value:
                 attr_and_value = (match_attr_and_value.group(1) or ""
-                                  + " " + (match_attr_and_value.group(2) or ""))
+                                  + " " + (
+                                      match_attr_and_value.group(2) or ""))
         command = method + " " + classname + " " + uid + " " + attr_and_value
         self.onecmd(command)
         return command
