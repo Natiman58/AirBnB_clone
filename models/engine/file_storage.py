@@ -54,9 +54,10 @@ class FileStorage:
 
     def reload(self):
         """Deserialize(structurize) the json file to __objects"""
-        if not os.path.isfile(FileStorage.__file_path):
+        J_file = FileStorage.__file_path
+        if not os.path.isfile(J_file):
             return
-        with open(FileStorage.__file_path, "r+", encoding="utf-8") as f:
+        with open(J_file, "r+", encoding="utf-8") as f:
             dict_obj = json.load(f)
             dict_obj = {key: self.classes()[val["__class__"]](**val)
                         for key, val in dict_obj.items()}
