@@ -26,10 +26,11 @@ class FileStorage:
         """serializes(stringize) __objects\
                 to the JSON file; __file_path"""
         J_file = FileStorage.__file_path
+        the_dict = FileStorage.__objects
         with open(J_file, "w+", encoding="utf-8") as f:
-            the_dict = {key: value.to_dict()
-                        for key, value in FileStorage.__objects.items()}
-            json.dump(the_dict, f)
+            dict_K_V = {key: value.to_dict()
+                        for key, value in the_dict.items()}
+            json.dump(dict_K_V, f)
 
     def classes(self):
         """Returns a dictionary of valid classes and their references."""
