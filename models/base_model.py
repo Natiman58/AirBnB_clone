@@ -15,6 +15,7 @@ class BaseModel:
             *args: list of args
             **kwargs: key/value args
             each key is an attribute name excluding;"__class__" attribute
+            each value is the value of the attribute name
         """
         if kwargs is not None and kwargs != {}:
             for key in kwargs:
