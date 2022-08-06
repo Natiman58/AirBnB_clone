@@ -14,6 +14,7 @@ class BaseModel:
             Initialize with public attributes(id, created_at, updated_at)
             *args: list of args
             **kwargs: key/value args
+            each key is an attribute name excluding;"__class__" attribute
         """
         if kwargs is not None and kwargs != {}:
             for key in kwargs:
