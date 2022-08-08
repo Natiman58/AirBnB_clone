@@ -202,6 +202,20 @@ class HBNBCommand(cmd.Cmd):
                 setattr(storage.all()[key], atr_name, atr_value)
                 storage.all()[key].save()
 
+    def do_count(self, line):
+        """
+            counts the number of instances of a class
+        """
+        words = line.split(' ')
+        if not words[0]:
+            print("** class name missing **")
+        elif words[0] not in storage.classes():
+            print("** class doesn't exist **")
+        else:
+            count = [key for key in storage.all() if key.startswith(
+                    words[0] + '.')]
+            print(len(count))
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
