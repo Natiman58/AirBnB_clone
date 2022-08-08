@@ -159,7 +159,7 @@ class HBNBCommand(cmd.Cmd):
         """Updates an instance based on the class name\
                 and id by adding or updating attribute """
         if line == "" or line is None:
-            print("** class name is missing **")
+            print("** class name missing **")
             return
 
         regx = r'^(\S+)(?:\s(\S+)(?:\s(\S+)(?:\s((?:"[^"]*")|(?:(\S)+)))?)?)?'
