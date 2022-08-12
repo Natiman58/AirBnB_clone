@@ -1,15 +1,18 @@
 footer{
+    display: flex;
+    border-top: 1px solid #CCCCCC;
     height: 60px;
     width: 100%;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    line-height: 60px;
     background-color: white;
-    border-top: 1px #CCCCCC;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: center;
+    bottom: 0;
+    position: fixed;
 }
 .foot_note {
     
     text-align: center;
-    position: bottom;
+    align-items: center;
+    display: flex;
 }
