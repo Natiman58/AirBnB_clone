@@ -3,9 +3,6 @@
     margin: 0;
     padding: 0;
 }
-html {
-    height: 100vh;
-}
 
 body {
     font-size: 14px;
@@ -18,5 +15,5 @@ body {
 .container {
     max-width: 1000px;
     margin: 30px auto;
-    height: 250%;
+    height: 2500%;
 }
