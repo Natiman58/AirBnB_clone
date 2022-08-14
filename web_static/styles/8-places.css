@@ -127,6 +127,59 @@ button:hover{
 
 .information{
     height: 80px;
-    width: 100px;
-    background-color: red;
+    width: 100%;
+    border-top: #DDDDDD 1px solid;
+    border-bottom: #DDDDDD 1px solid;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.max_guest{
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.number_rooms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-align: center;
+}
+
+.number_bathrooms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.icon_guest {
+    height: 50px;
+    background-image: url('../images/icon_group.png');
+    width: 50px;
+}
+
+.icon_bed {
+    height: 50px;
+    background-image: url('../images/icon_bed.png');
+    width: 50px;
+}
+
+.icon_bath{
+    height: 50px;
+    background-image: url('../images/icon_bath.png');
+    width: 50px;
+    
+}
+.user{
+    padding: 10px 0px;
+
 }
